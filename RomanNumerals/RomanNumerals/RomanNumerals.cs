@@ -1,14 +1,39 @@
-﻿namespace RomanNumerals
+﻿using System.Collections.Generic;
+
+namespace RomanNumerals
 {
     public class RomanNumerals
     {
+        private static Dictionary<int, string> _mapping = new Dictionary<int, string>()
+        {
+            {4, "IV"},
+            {1, "I"}
+        };
+
         public static string FromInteger(int number)
         {
-            if (number == 2)
+            var res = "";
+            foreach (var key in _mapping.Keys)
             {
-                return "II";
+                while (number >= key)
+                {
+                    res += _mapping[key];
+                    number -= key;
+                }
             }
-            return "I";
+
+            return res;
+            //if (number == 4)
+            //    return "IV";
+
+            //var res = "";
+            //while (number > 0)
+            //{
+            //    res += "I";
+            //    number--;
+            //}
+
+            //return res;
         }
     }
 }
