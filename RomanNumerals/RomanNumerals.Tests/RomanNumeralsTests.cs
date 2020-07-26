@@ -15,5 +15,16 @@ namespace RomanNumerals.Tests
             RomanNumerals.FromInteger(5).Should().Be("V");
             RomanNumerals.FromInteger(1981).Should().Be("MCMLXXXI");
         }
+
+        [Test]
+        public void FromRomanNumerals()
+        {
+            RomanNumerals.ToInteger("I").Should().Be(1);
+            RomanNumerals.ToInteger("II").Should().Be(2);
+            RomanNumerals.ToInteger("III").Should().Be(3);
+            RomanNumerals.ToInteger("IV").Should().Be(4);
+            RomanNumerals.ToInteger("V").Should().Be(5);
+            RomanNumerals.ToInteger("MCMLXXXI").Should().Be(1981);
+        }
     }
 }
